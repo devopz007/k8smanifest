@@ -18,6 +18,7 @@ node {
                         sh "cat deployment.yaml"
                         sh "sed -i 's+devopz007/test.*+devopz007/test:${DOCKERTAG}+g' deployment.yaml"
                         sh "cat deployment.yaml"
+                        sh "git status"
                         sh "git add ."
                         sh "git commit -m 'Done by Jenkins Job changemanifest: ${DOCKERTAG}'"
                         sh "git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/${GIT_USERNAME}/kubernetesmanifest.git HEAD:main"
