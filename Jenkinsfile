@@ -18,6 +18,7 @@ node {
                         sh "cat deployment.yaml"
                         sh "sed -i 's+devopzdocker007/test.*+devopzdocker007/test:${DOCKERTAG}+g' deployment.yaml"
                         sh "cat deployment.yaml"
+                        sh "git remote -v"
                         sh "git status"
                         sh "git add ."
                         sh "git commit -m 'Done by Jenkins Job changemanifest: ${DOCKERTAG}'"
